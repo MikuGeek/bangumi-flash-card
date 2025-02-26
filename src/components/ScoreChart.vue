@@ -7,8 +7,8 @@ const props = defineProps<{
 
 const circumference = 2 * Math.PI * 45
 const dashOffset = computed(() => {
-  const percentage = (10 - props.score) / 10
-  return circumference * percentage
+  const percentage = props.score / 10
+  return circumference * (1 - percentage)
 })
 </script>
 
@@ -21,7 +21,7 @@ const dashOffset = computed(() => {
         cy="50"
         r="45"
         fill="none"
-        stroke="#e0e0e0"
+        stroke="var(--color-surface-400)"
         stroke-width="8"
       />
       <!-- Score progress circle -->
@@ -30,11 +30,12 @@ const dashOffset = computed(() => {
         cy="50"
         r="45"
         fill="none"
-        stroke="#4CAF50"
+        stroke="var(--color-primary-400)"
         stroke-width="8"
         :stroke-dasharray="circumference"
         :stroke-dashoffset="dashOffset"
         transform="rotate(-90 50 50)"
+        class="progress-circle"
       />
       <!-- Score text -->
       <text
@@ -43,7 +44,7 @@ const dashOffset = computed(() => {
         text-anchor="middle"
         dominant-baseline="middle"
         font-size="24"
-        fill="#333"
+        fill="var(--color-text-900)"
       >
         {{ score }}
       </text>
@@ -57,6 +58,10 @@ const dashOffset = computed(() => {
 }
 
 circle {
-  transition: stroke-dashoffset 0.3s ease;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.progress-circle {
+  stroke-linecap: round;
 }
 </style>

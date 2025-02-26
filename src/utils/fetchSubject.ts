@@ -24,7 +24,7 @@ export async function fetchInfoSubject(id: number): Promise<DataAnime | DataGame
         images: data.images || {},
         tags: (data.tags?.slice(0, 6) || []).map((tag: any) => tag || ''),
         date: data.date || '',
-        company: data.infobox?.find((item: any) => item.key === "制作公司")?.value || 'Unknown',
+        company: data.infobox?.find((item: any) => item.key === "动画制作")?.value || 'Unknown',
         platform: data.platform || 'Unknown',
       };
       return anime;
@@ -37,7 +37,7 @@ export async function fetchInfoSubject(id: number): Promise<DataAnime | DataGame
         images: data.images || {},
         tags: (data.tags?.slice(0, 6) || []).map((tag: any) => tag || ''),
         date: data.date || '',
-        company: data.infobox?.find((item: any) => item.key === "开发商")?.value || 'Unknown',
+        company: data.infobox?.find((item: any) => item.key === "开发")?.value || 'Unknown',
         game_type: data.infobox?.find((item: any) => item.key === "游戏类型")?.value || 'Unknown',
       };
       return game;

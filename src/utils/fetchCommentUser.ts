@@ -8,7 +8,11 @@ export async function fetchCommentUser(idUser: string, idSubject: number): Promi
     }
 
     const data = await response.json();
-    return data;
+    console.log(data);
+    return {
+      comment: data.comment,
+      score: data.rate || 0,
+    };
   } catch (error) {
     console.error('Error fetching comment user:', error);
     return null;
