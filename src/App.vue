@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import CardAnime from './components/CardAnime.vue'
-import { ref } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import { saveAsImage } from './utils/saveAsImage'
 
-const cardRef = ref<HTMLElement | null>(null)
+const cardRef = useTemplateRef('cardRef')
 </script>
 
 <template>
