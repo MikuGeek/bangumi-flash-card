@@ -18,27 +18,29 @@ export async function fetchInfoSubject(id: number): Promise<DataAnime | DataGame
     ) {
       let anime: DataAnime = {
         id: id,
-        name: data.name || 'Unknown',
-        name_cn: data.name_cn || '',
+        name: data.name || "",
+        name_cn: data.name_cn || "",
         score: data.rating?.score || 0,
         images: data.images || {},
-        tags: (data.tags?.slice(0, 6) || []).map((tag: any) => tag || ''),
-        date: data.date || '',
-        company: data.infobox?.find((item: any) => item.key === "动画制作")?.value || 'Unknown',
-        platform: data.platform || 'Unknown',
+        tags: (data.tags?.slice(0, 6) || []).map((tag: any) => tag || ""),
+        date: data.date || "",
+        company:
+          data.infobox?.find((item: any) => item.key === "动画制作")?.value ||
+          "",
+        platform: data.platform || "",
       };
       return anime;
     } else if (data.platform === "游戏") {
       let game: DataGame = {
         id: id,
-        name: data.name || 'Unknown',
+        name: data.name || '',
         name_cn: data.name_cn || '',
         score: data.rating?.score || 0,
         images: data.images || {},
         tags: (data.tags?.slice(0, 6) || []).map((tag: any) => tag || ''),
         date: data.date || '',
-        company: data.infobox?.find((item: any) => item.key === "开发")?.value || 'Unknown',
-        game_type: data.infobox?.find((item: any) => item.key === "游戏类型")?.value || 'Unknown',
+        company: data.infobox?.find((item: any) => item.key === "开发")?.value || '',
+        game_type: data.infobox?.find((item: any) => item.key === "游戏类型")?.value || '',
       };
       return game;
     } else {
