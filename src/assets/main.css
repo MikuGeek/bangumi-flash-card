@@ -1,20 +1,10 @@
+@import './color.css';
+
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  padding-left: 300px;
 }
 
 *,
@@ -29,4 +19,28 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--uchu-yang);
+  color: var(--uchu-blue-8);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+@media (max-width: 768px) {
+  #app {
+    flex-direction: column;
+    padding-left: 0;
+    padding-top: 6.5rem;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  main {
+    padding: 1rem !important;
+  }
+
+  .card-container {
+    margin: 0 -1rem;
+    border-radius: 0 !important;
+  }
 }

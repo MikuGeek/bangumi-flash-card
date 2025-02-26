@@ -55,13 +55,30 @@ const dashOffset = computed(() => {
 <style scoped>
 .score-chart {
   display: inline-block;
+  padding: 0.5rem;
+  background-color: var(--uchu-yang);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px oklch(0 0 0 / 0.08);
 }
 
 circle {
-  transition: stroke-dashoffset 0.5s ease-in-out;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+circle:first-child {
+  stroke: var(--uchu-blue-2);
+}
+
+circle:nth-child(2) {
+  stroke: var(--uchu-blue-6);
 }
 
 .progress-circle {
   stroke-linecap: round;
+}
+
+text {
+  font-weight: 600;
+  fill: var(--uchu-blue-8);
 }
 </style>
