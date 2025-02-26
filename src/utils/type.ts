@@ -10,15 +10,19 @@ export interface DataSubject {
     name: string;
     count: number;
   }>;
-}
-
-export interface DataAnime extends DataSubject {
   date: string;
   company: string;
 }
 
+export interface DataAnime extends DataSubject {
+  platform: string;
+}
+
 export interface DataGame extends DataSubject {
   game_type: string;
-  date: string;
-  developer: string;
+}
+
+export interface CommentUser {
+  comment: string;
+  score: number;
 }
