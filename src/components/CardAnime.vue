@@ -64,21 +64,18 @@ const isGame = (subject: DataAnime | DataGame | null): subject is DataGame => {
 
 <style scoped>
 .card-main {
+  composes: card;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas:
     "left right"
     "bottom bottom";
-  gap: 2rem;
-  padding: 2rem;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
   width: 100%;
   max-width: 800px;
+  min-width: 500px;
   min-height: 400px;
-  height: fit-content;
-  background-color: var(--uchu-yang);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px oklch(0 0 0 / 0.08);
-  border: 1px solid var(--uchu-blue-2);
 }
 
 .card-left {
@@ -101,25 +98,25 @@ const isGame = (subject: DataAnime | DataGame | null): subject is DataGame => {
 
 .card-bottom {
   grid-area: bottom;
-  border-top: 1px solid var(--uchu-blue-2);
+  border-top: 1px solid #e6eef9;
   padding-top: 1.5rem;
 }
 
 .subject-title {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--uchu-blue-8);
+  color: var(--color-primary-dark);
   line-height: 1.2;
 }
 
 .subject-title-cn {
   font-size: 1.5rem;
-  color: var(--uchu-blue-6);
+  color: var(--color-primary);
   font-weight: 500;
 }
 
 .subject-metadata {
-  color: var(--uchu-gray-7);
+  color: var(--color-text-light);
   font-size: 0.95rem;
 }
 
@@ -131,25 +128,25 @@ const isGame = (subject: DataAnime | DataGame | null): subject is DataGame => {
 }
 
 .tag {
-  background-color: var(--uchu-blue-1);
-  color: var(--uchu-blue-7);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 16px;
   font-size: 0.875rem;
-  border: 1px solid var(--uchu-blue-2);
+  border: 1px solid var(--color-border);
 }
 
 .card-right img {
   width: 180px;
   height: 240px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px oklch(0 0 0 / 0.08);
-  border: 1px solid var(--uchu-blue-2);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 
 .comment-text {
-  color: var(--uchu-gray-8);
+  color: #111111;
   line-height: 1.6;
   font-size: 1rem;
 }
@@ -157,7 +154,7 @@ const isGame = (subject: DataAnime | DataGame | null): subject is DataGame => {
 .comment-score {
   margin-top: 1rem;
   font-weight: 600;
-  color: var(--uchu-blue-7);
+  color: #0074D9;
 }
 
 @media (max-width: 640px) {
@@ -167,7 +164,8 @@ const isGame = (subject: DataAnime | DataGame | null): subject is DataGame => {
       "right"
       "left"
       "bottom";
-    max-width: 400px;
+    max-width: 500px;
+    min-width: 500px;
     padding: 1.5rem;
   }
 
